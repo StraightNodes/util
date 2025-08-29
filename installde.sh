@@ -74,6 +74,7 @@ else
     echo "No new user created. You can RDP using existing users (e.g., root)."
 fi
 
+clear
 echo "======================================="
 echo "Setup complete!"
 echo "Desktop Environment: $DE_NAME"
