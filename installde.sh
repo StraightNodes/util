@@ -45,10 +45,14 @@ case $choice in
 esac
 
 echo "Installing $DE_NAME..."
-apt update
+DEBIAN_FRONTEND=noninteractive apt update
 $INSTALL_CMD
 
-apt install -y xrdp
+DEBIAN_FRONTEND=noninteractive apt install -y xrdp
+
+if [ ! -f /usr/bin/systemctl ]; then
+    bash <(curl -fsSL https://raw.githubusercontent.com/StraightNodes/util/refs/heads/main/systemctl.sh)
+fi
 
 systemctl enable xrdp
 systemctl start xrdp
